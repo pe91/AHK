@@ -3,8 +3,10 @@ global demo_name := A_Now
 Numpad0:: {
     csgo_pid := ProcessExist("csgo.exe")
     if (csgo_pid) {
-        WinActivate "ahk_pid" csgo_pid
-        Sleep 1000
+        if (!WinActive("ahk_pid" csgo_pid)) {
+            WinActivate "ahk_pid" csgo_pid
+            Sleep 1000
+        }
         Send "{``}"
         Sleep 100
         Send "record "
@@ -15,6 +17,9 @@ Numpad0:: {
         Send "{Enter}"
         Sleep 100
         Send "{``}"
+    }
+    else{
+        MsgBox("You gotta have csgo open xD","Error")
     }
 }
 
