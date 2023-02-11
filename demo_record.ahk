@@ -12,9 +12,6 @@ Numpad0:: {
         Send "record "
         Send demo_name
         Send "{Enter}"
-        Sleep 1000
-        Send "stop"
-        Send "{Enter}"
         Sleep 100
         Send "{``}"
     }
@@ -24,9 +21,21 @@ Numpad0:: {
 }
 
 Numpad5:: {
+    Send "{``}"
+    Sleep 100
+    Send "stop"
+    Send "{Enter}"
+    Sleep 100
+    Send "{``}"
     global demo_name := A_Now
 }
 NumpadDot:: {
+    Send "{``}"
+    Sleep 100
+    Send "stop"
+    Send "{Enter}"
+    Sleep 100
+    Send "{``}"
     path := "C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\csgo\" demo_name ".dem"
     if (!FileExist(path)) {
         return
