@@ -1,7 +1,7 @@
 #Requires AutoHotkey v2.0
 global demo_name := A_Now
-global process_name := "csgo.exe"
-Numpad0:: {
+global process_name := "notepad.exe"
+Home:: {
 	csgo_pid := ProcessExist(process_name)
     if (csgo_pid) {
         if (!WinActive("ahk_pid" csgo_pid)) {
@@ -21,7 +21,7 @@ Numpad0:: {
     }
 }
 
-Numpad5:: {
+End:: {
 	csgo_pid := ProcessExist(process_name)
 	if (csgo_pid) {
         if (!WinActive("ahk_pid" csgo_pid)) {
@@ -41,7 +41,7 @@ Numpad5:: {
 	}
 	
 }
-NumpadDot:: {
+Del:: {
 	csgo_pid := ProcessExist(process_name)
 	if (csgo_pid) {
         if (!WinActive("ahk_pid" csgo_pid)) {
