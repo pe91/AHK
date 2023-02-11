@@ -1,6 +1,6 @@
 #Requires AutoHotkey v2.0
 global demo_name := A_Now
-global process_name := "notepad.exe"
+global process_name := "csgo.exe"
 Home:: {
 	csgo_pid := ProcessExist(process_name)
     if (csgo_pid) {
