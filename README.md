@@ -1,6 +1,4 @@
-Simple POV demo recorder for CSGO
-
-
+# Simple POV demo recorder for CSGO
 
 Press Numpad0 to record a demo of the round you're about to play
 
