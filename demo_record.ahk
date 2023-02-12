@@ -56,7 +56,10 @@ global process_name := "csgo.exe"
 		Send "{Enter}"
 		Sleep 200
 		Send "{``}"
-		path := "C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\csgo\" demo_name ".dem"
+		path := ProcessGetPath(csgo_pid)
+        Sleep 1000
+        SplitPath(path,,&dir,,,)
+        path :=  dir "\csgo\" demo_name ".dem"
 		if (!FileExist(path)) {
             SoundPlay(A_WinDir "\Media\Windows Ding.wav")
 			return
