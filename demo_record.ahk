@@ -42,7 +42,7 @@ global recording := false
 		Sleep 100
 		Send "{``}"
 		SoundPlay(A_WinDir "\Media\tada.wav")
-		global recording := 0
+		global recording := false
 		global demo_name := A_Now
 	}
 	else {
@@ -71,7 +71,7 @@ global recording := false
 		Sleep 1000
 		SplitPath(path, , &dir, , ,)
 		path := dir "\csgo\" demo_name ".dem"
-		global recording := 0
+		global recording := false
 		if (!FileExist(path)) {
 			SoundPlay(A_WinDir "\Media\Windows Ding.wav")
 			return
