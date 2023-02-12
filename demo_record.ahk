@@ -1,7 +1,7 @@
-#Requires AutoHotkey v2.0
+﻿#Requires AutoHotkey v2.0
 global demo_name := A_Now
 global process_name := "csgo.exe"
-Home:: {
++Home:: {
 	csgo_pid := ProcessExist(process_name)
     if (csgo_pid) {
         if (!WinActive("ahk_pid" csgo_pid)) {
@@ -15,13 +15,14 @@ Home:: {
         Send "{Enter}"
         Sleep 100
         Send "{``}"
+        SoundPlay(A_WinDir "\Media\notify.wav")
     }
     else{
         MsgBox("You gotta have csgo open xD","Error")
     }
 }
 
-End:: {
++End:: {
 	csgo_pid := ProcessExist(process_name)
 	if (csgo_pid) {
         if (!WinActive("ahk_pid" csgo_pid)) {
@@ -34,6 +35,7 @@ End:: {
 		Send "{Enter}"
 		Sleep 100
 		Send "{``}"
+        SoundPlay(A_WinDir "\Media\tada.wav")
 		global demo_name := A_Now
 	}
 	else{
@@ -41,7 +43,7 @@ End:: {
 	}
 	
 }
-Del:: {
++Del:: {
 	csgo_pid := ProcessExist(process_name)
 	if (csgo_pid) {
         if (!WinActive("ahk_pid" csgo_pid)) {
@@ -49,16 +51,18 @@ Del:: {
             Sleep 1000
         }
 		Send "{``}"
-		Sleep 100
+		Sleep 200
 		Send "stop"
 		Send "{Enter}"
-		Sleep 100
+		Sleep 200
 		Send "{``}"
 		path := "C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\csgo\" demo_name ".dem"
 		if (!FileExist(path)) {
+            SoundPlay(A_WinDir "\Media\Windows Ding.wav")
 			return
 		}
 		FileDelete(path)
+        SoundPlay(A_WinDir "\Media\Windows Exclamation.wav")
 		global demo_name := A_Now
 	}
 	else{
