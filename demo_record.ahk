@@ -67,7 +67,7 @@ global recording := false
 		Sleep 1000
 		SplitPath(path, , &dir, , ,)
 		path := dir "\csgo\" demo_name ".dem"
-		global recording := 0
+		global recording := false
 		if (!FileExist(path)) {
 			return
 		}
