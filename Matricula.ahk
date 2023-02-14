@@ -1,6 +1,6 @@
 #Requires AutoHotkey v2.0
 global funfou := false
-global cor
+global cor := 0xD3D3D3
 +Home:: {
     while (true) {
         Send "{f5}"
@@ -13,7 +13,7 @@ global cor
         Sleep 2500
         MouseClick
         Sleep 4000
-        if (PixelGetColor(811, 768) == 0xD3D3D3) {
+        if (PixelGetColor(811, 768) == cor) {
             Sleep 100
             MouseMove(809, 798)
             Sleep 3000
